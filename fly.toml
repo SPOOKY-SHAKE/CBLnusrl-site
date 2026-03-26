@@ -1,0 +1,16 @@
+app = "cblnusrl-site-2026"
+kill_signal = "SIGINT"
+kill_timeout = 5
+
+[build]
+  builder = "heroku/buildpacks:20"
+
+[env]
+  FLY_REGION = ""  # Optional: Specify your desired Fly region
+
+[mounts]
+  source = "data"
+  destination = "/data"  # Path where your data is stored
+
+[deploy]
+  strategy = "automatic"
