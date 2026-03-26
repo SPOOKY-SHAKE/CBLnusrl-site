@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  app:
+    image: your_application_image  # replace with your application image name
+    ports:
+      - '3000:3000'  # map ports as needed
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/yourdbname  # replace with your actual DB name
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - '27017:27017'
+    volumes:
+      - mongo_data:/data/db
+
+volumes:
+  mongo_data:
